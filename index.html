@@ -13234,7 +13234,7 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Slideshow">Slideshow<a class="anchor-link" href="#Slideshow">&#182;</a></h2><p>This interactive slideshow will walk through the code I have created to conduct a Benford Analysis on AUP's 990 tax form. The goal of writing this code is to create a system where anybody can input a csv file into this code (found on kaggle or github) and the code will automatically do a full Benford analysis. The only work that the user needs to do is connect the file.</p>
+<h2 id="Slideshow">Slideshow<a class="anchor-link" href="#Slideshow">&#182;</a></h2><p>This interactive slideshow will walk through the code I have created to conduct a Benford Analysis on AUP's 990 tax form. The goal of writing this code is to create a system where anybody can input a csv file into this code (found on Kaggle or github) and the code will automatically do a full Benford analysis. The only work that the user needs to do is connect the file.</p>
 <p>At this point the code is not idiot-proofed yet so it needs to be set up to deal with some dope who tries to put in a spreadsheet full of words or whatever. That idiot-proofing will be done, but that much code is too much for this slideshow.</p>
 
 </div>
@@ -13243,8 +13243,8 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Benford-Analysis">Benford Analysis<a class="anchor-link" href="#Benford-Analysis">&#182;</a></h2><p>Benford's Law is based around the idea that numbers aren't evenly distributed in nature. They are distributed abnormally. When examining the first digit of every number from a set, a distinct distribution emerges that appears in all sorts of data sets (see link below). A Benford Analysis leverages this information by comparing numbers on SEC filings, population sizes, street names to the expected value those numbers should be based on Benford's Law and looks for descrepencies between the two.</p>
-<p>Often Descrepencies could mean fraud is involved. For example, Enron's financial statements do not follow Benford's Law while the line count of the <em>Rails</em> 3.0.9 source code does (<a href="https://testingbenfordslaw.com/rails-core-line-count">https://testingbenfordslaw.com/rails-core-line-count</a>).</p>
+<h2 id="Benford-Analysis">Benford Analysis<a class="anchor-link" href="#Benford-Analysis">&#182;</a></h2><p>Benford's Law is based around the idea that numbers aren't evenly distributed in nature. They are distributed abnormally. When examining the first digit of every number from a set, a distinct distribution emerges that appears in all sorts of data sets (see link below). A Benford Analysis leverages this information by comparing numbers on SEC filings, population sizes, street names to the expected value those numbers should be based on Benford's Law and looks for discrepancies between the two.</p>
+<p>Often discrepancies could mean fraud is involved. For example, Enron's financial statements do not follow Benford's Law while the line count of the <em>Rails</em> 3.0.9 source code does (<a href="https://testingbenfordslaw.com/rails-core-line-count">https://testingbenfordslaw.com/rails-core-line-count</a>).</p>
 <p>On this project we will use the American University of Paris's 2017 990 tax returns as our reference material. Our goal is to use python to examine these tax returns and to determine if they follow Benford's law, and if they do not, what numbers could possibly be fraudulent because of this. At the end we will examine what accounts contain numbers in positions that are not distributed as they should be, then make a recommendation based off of this information as to what accounts should be audited in search of fraud.</p>
 
 </div>
@@ -13284,14 +13284,14 @@ a.anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The first thing we will do is import our CSV. It is formatted with account names on the Y axis and headers on the X.</p>
-<p>The goal of this program is to be useable for a large number of different CSV's so we can replace this file with another and it will produce meaningful results.</p>
+<p>The goal of this program is to be usable for a large number of different CSV's so we can replace this file with another and it will produce meaningful results.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://ac.aup.edu/~a100186/Source/Raw_Benford_Numbers.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">)</span>
@@ -13326,7 +13326,7 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#an example of some of our data</span>
@@ -13343,7 +13343,7 @@ a.anchor-link {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[3]:</div>
+    <div class="prompt output_prompt">Out[40]:</div>
 
 
 
@@ -13428,7 +13428,7 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Remove all &quot;nan&quot; values for blank cells</span>
@@ -13462,7 +13462,7 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#this for and if loop evaluates if the value ends with &#39;.0&#39; and if it does, the last two digits are removed</span>
@@ -13486,7 +13486,7 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">finalData</span><span class="p">)</span>
@@ -13506,7 +13506,7 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;3834833&#39;, &#39;36926019&#39;, &#39;735579&#39;, &#39;396641&#39;, &#39;78400&#39;, &#39;23543&#39;, &#39;259816&#39;, &#39;205983&#39;, &#39;58833&#39;, &#39;24822&#39;, &#39;587914&#39;, &#39;22336&#39;, &#39;101153&#39;, &#39;5514388&#39;, &#39;2104545&#39;, &#39;11303061&#39;, &#39;455081&#39;, &#39;335673&#39;, &#39;6650616&#39;, &#39;265798&#39;, &#39;118048&#39;, &#39;1552635&#39;, &#39;336687&#39;, &#39;1586477&#39;, &#39;556715&#39;, &#39;3690707&#39;, &#39;560113&#39;, &#39;754573&#39;, &#39;1450405&#39;, &#39;183486&#39;, &#39;350531&#39;, &#39;623581&#39;, &#39;122722&#39;, &#39;130526&#39;, &#39;258036&#39;, &#39;42737986&#39;, &#39;38904404&#39;, &#39;3833581&#39;, &#39;14893635&#39;, &#39;131765&#39;, &#39;18595451&#39;, &#39;12041723&#39;, &#39;37801365&#39;, &#39;3045439&#39;, &#39;3626520&#39;, &#39;11201579&#39;, &#39;988439&#39;, &#39;9774868&#39;, &#39;265181&#39;, &#39;5281646&#39;, &#39;25027&#39;, &#39;277114&#39;, &#39;275934&#39;, &#39;472770&#39;, &#39;355273&#39;, &#39;235485&#39;, &#39;372252&#39;, &#39;596599&#39;, &#39;84219&#39;, &#39;456298&#39;, &#39;122564&#39;, &#39;236144&#39;, &#39;5866347&#39;, &#39;1702163&#39;, &#39;2836227&#39;, &#39;1116106&#39;, &#39;862767&#39;, &#39;53120&#39;, &#39;1071886&#39;, &#39;240341&#39;, &#39;1123160&#39;, &#39;2817&#39;, &#39;1070534&#39;, &#39;195275&#39;, &#39;3433336&#39;, &#39;93309&#39;, &#39;103211&#39;, &#39;99267&#39;, &#39;151743&#39;, &#39;7697&#39;, &#39;19877&#39;, &#39;12041723&#39;, &#39;31935018&#39;, &#39;1343276&#39;, &#39;790293&#39;]
+<pre>[3834833, 36926019, 735579, 396641, 78400, 23543, 259816, 205983, 58833, 24822, 587914, 22336, 101153, 5514388, 2104545, 11303061, 455081, 335673, 6650616, 265798, 118048, 1552635, 336687, 1586477, 556715, 3690707, 560113, 754573, 1450405, 183486, 350531, 623581, 122722, 130526, 258036, 42737986, 38904404, 3833581, 14893635, 131765, 18595451, 12041723, 37801365, 3045439, 3626520, 11201579, &#39;988439&#39;, &#39;9774868&#39;, &#39;265181&#39;, &#39;5281646&#39;, &#39;25027&#39;, &#39;277114&#39;, &#39;275934&#39;, &#39;472770&#39;, &#39;355273&#39;, &#39;235485&#39;, &#39;372252&#39;, &#39;596599&#39;, &#39;84219&#39;, &#39;456298&#39;, &#39;122564&#39;, &#39;236144&#39;, &#39;5866347&#39;, &#39;1702163&#39;, &#39;2836227&#39;, &#39;1116106&#39;, &#39;862767&#39;, &#39;53120&#39;, &#39;1071886&#39;, &#39;240341&#39;, &#39;1123160&#39;, &#39;2817&#39;, &#39;1070534&#39;, &#39;195275&#39;, &#39;3433336&#39;, &#39;93309&#39;, &#39;103211&#39;, &#39;99267&#39;, &#39;151743&#39;, &#39;7697&#39;, &#39;19877&#39;, &#39;12041723&#39;, &#39;31935018&#39;, &#39;1343276&#39;, &#39;790293&#39;]
 </pre>
 </div>
 </div>
@@ -13538,9 +13538,9 @@ a.anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong><em>Analysis Section</em></strong></p>
 <p>This is a long one so bear with me. In this section we define functions to parse through our data list and break out the first, second and third digit so we may examine and count them. Then we call the functions and graph the results.</p>
-<p>Excuse the prehistoric looking grpahs at this point... I am working on creating them using a different engine, but you get what you get.</p>
+<p>Excuse the prehistoric looking graphs at this point... I am working on creating them using a different engine, but you get what you get.</p>
 <p>When we have our core data, we do some data manipulation to examine the standard deviations and skew of our results against their expected values, which yields some quite interesting results.</p>
-<p>Lastly we create data structures which contain our list of results along with their corresponding expxected values, and the difference between them. We do this in case we later want to add more statistics to each section, it will also make the final data analysis easier.</p>
+<p>Lastly we create data structures which contain our list of results along with their corresponding expected values, and the difference between them. We do this in case we later want to add more statistics to each section, it will also make the final data analysis easier.</p>
 
 </div>
 </div>
@@ -13555,7 +13555,7 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">firstDigit</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
@@ -13595,7 +13595,7 @@ a.anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">second_Digit</span> <span class="o">=</span> <span class="n">secondDigit</span><span class="p">(</span><span class="n">finalData</span><span class="p">)</span>
@@ -13619,7 +13619,7 @@ As you can see, the dataframe makes the values quite easy to read.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Benford_percentiles</span>
@@ -13635,7 +13635,7 @@ As you can see, the dataframe makes the values quite easy to read.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[47]:</div>
 
 
 
@@ -13756,7 +13756,7 @@ As you can see, the dataframe makes the values quite easy to read.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">first_digit_percentile</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">first_Digit</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">first_Digit</span><span class="p">]</span>
@@ -13768,7 +13768,7 @@ As you can see, the dataframe makes the values quite easy to read.</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">First_digit_benfords</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span> <span class="s1">&#39;Actual&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">first_digit_percentile</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span> <span class="s1">&#39;Expected&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;First Digit; Expected values are in blue, actual are in orange&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13778,19 +13778,6 @@ As you can see, the dataframe makes the values quite easy to read.</p>
 <div class="output_wrapper">
 <div class="output">
 
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[12]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;function matplotlib.pyplot.show(*args, **kw)&gt;</pre>
-</div>
-
-</div>
 
 <div class="output_area">
 
@@ -13820,7 +13807,7 @@ As you can see, the dataframe makes the values quite easy to read.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">second_Digit_percentile</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">second_Digit</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">second_Digit</span><span class="p">]</span>
@@ -13871,7 +13858,7 @@ As you can see, the dataframe makes the values quite easy to read.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">third_Digit_percentile</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">third_Digit</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">third_Digit</span><span class="p">]</span>
@@ -13929,7 +13916,7 @@ As you can see, the dataframe makes the values quite easy to read.</p>
 </li>
 <li><p><strong>Third Digit Test</strong></p>
 <ul>
-<li>The third digit test seems to reveal numbers close to their expected values, with most digits staying with 2% except for four and five. Since we arent testing directly for deficiencies of numbers, we will probably examine just number 5.</li>
+<li>The third digit test seems to reveal numbers close to their expected values, with most digits staying with 2% except for four and five. Since we aren't testing directly for deficiencies of numbers, we will probably examine just number 5.</li>
 </ul>
 </li>
 </ul>
@@ -13947,7 +13934,7 @@ As you can see, the dataframe makes the values quite easy to read.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#reinitialize these variables before I alter them just to keep the code clean</span>
@@ -13977,7 +13964,7 @@ As you can see, the dataframe makes the values quite easy to read.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">final_df</span>
@@ -13993,7 +13980,7 @@ As you can see, the dataframe makes the values quite easy to read.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[16]:</div>
+    <div class="prompt output_prompt">Out[53]:</div>
 
 
 
@@ -14147,7 +14134,7 @@ As you can see, the dataframe makes the values quite easy to read.</p>
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">final_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=-</span><span class="mi">30</span><span class="p">)</span>
@@ -14163,13 +14150,13 @@ As you can see, the dataframe makes the values quite easy to read.</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[17]:</div>
+    <div class="prompt output_prompt">Out[54]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1950aa4b278&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1b89b94e1d0&gt;</pre>
 </div>
 
 </div>
@@ -14203,7 +14190,7 @@ As you can see, the dataframe makes the values quite easy to read.</p>
 </div></div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skew</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">final_df</span><span class="o">.</span><span class="n">skew</span><span class="p">(),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Kurtosis:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">final_df</span><span class="o">.</span><span class="n">kurt</span><span class="p">())</span>
@@ -14259,7 +14246,7 @@ dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">final_df</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
@@ -14275,7 +14262,7 @@ dtype: float64
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[19]:</div>
+    <div class="prompt output_prompt">Out[56]:</div>
 
 
 
@@ -14300,7 +14287,7 @@ dtype: float64</pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Now we need to find out where we are finding these abnormal digit counts.</strong></p>
-<p>-In order to do that we will seperate each digit test into its own data sheet and then find their differences</p>
+<p>-In order to do that we will separate each digit test into its own data sheet and then find their differences</p>
 <p>-Once we have found the differences, we will establish a threshold for error. In our case I chose 5%.</p>
 <p>-So if a number is more than 5% away from the expected value based on Benford's law, then this program should select it.</p>
 
@@ -14309,7 +14296,7 @@ dtype: float64</pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">myDataFrame</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">digit_test</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
@@ -14334,7 +14321,7 @@ dtype: float64</pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#This runs the function we created before on each of my different tests</span>
@@ -14361,7 +14348,7 @@ dtype: float64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[21]:</div>
+    <div class="prompt output_prompt">Out[58]:</div>
 
 
 
@@ -14475,7 +14462,7 @@ dtype: float64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Before-Moving-On">Before Moving On<a class="anchor-link" href="#Before-Moving-On">&#182;</a></h2><p>Before doing our final analysis, locating of the accounts and our conclusion, we will explore the last-two test. This test checks for rounding of numbers by examining the last two digits in our entire datasets, and looking for highly used numbers and abnormally groupped numbers.</p>
+<h2 id="Before-Moving-On">Before Moving On<a class="anchor-link" href="#Before-Moving-On">&#182;</a></h2><p>Before doing our final analysis, locating of the accounts and our conclusion, we will explore the last-two test. This test checks for rounding of numbers by examining the last two digits in our entire data-sets, and looking for highly used numbers and abnormally grouped numbers.</p>
 
 </div>
 </div>
@@ -14493,9 +14480,9 @@ dtype: float64</pre>
 <p><strong>Before we finish analyzing our earlier data, lets examine the last two digits to determine whether or not rounding was used</strong></p>
 <p>First lets define our expectations for the last two digits.</p>
 <ul>
-<li>Not including items in the cents place we should expecct to see an even distribution across all numbers between 00-99</li>
+<li>Not including items in the cents place we should expect to see an even distribution across all numbers between 00-99</li>
 <li>Something that may corrupt our dataset is that we dont even have 100 different numbers (around 95 unique numbers)</li>
-<li>However, if we see a significant repitition or grouping of some numbers over others then there may be a case of rounding to be made</li>
+<li>However, if we see a significant repetition or grouping of some numbers over others then there may be a case of rounding to be made</li>
 </ul>
 
 </div>
@@ -14510,11 +14497,11 @@ dtype: float64</pre>
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">last_two_digit_test</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;accepts a dataframe as an input and returns a list of the count of each digit out of 100 digits&#39;&#39;&#39;</span>
+    <span class="sd">&quot;&quot;&quot;accepts a data frame as an input and returns a list of the count of each digit out of 100 digits&quot;&quot;&quot;</span>
     <span class="c1">#create an list of 100 integers, each with a zero value</span>
     <span class="n">myList</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
@@ -14533,7 +14520,7 @@ dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">last_two</span> <span class="o">=</span> <span class="n">last_two_digit_test</span><span class="p">(</span><span class="n">finalData</span><span class="p">)</span>
@@ -14560,7 +14547,7 @@ dtype: float64</pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="p">[]</span>
@@ -14608,7 +14595,7 @@ dtype: float64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Results">Results<a class="anchor-link" href="#Results">&#182;</a></h4><p>As this graph shows, there are a few values with more than two occurences.</p>
+<h4 id="Results">Results<a class="anchor-link" href="#Results">&#182;</a></h4><p>As this graph shows, there are a few values with more than two occurrences.</p>
 <p>There might be something interesting with whatever value shows up four times, but <em>due to the small sample size, it is difficult finding strong evidence for rounding in the last two digits</em></p>
 <p>That being said, lets figure out which number appears four times just to see if there is significance to it.</p>
 
@@ -14617,7 +14604,7 @@ dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[62]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">last_two_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">last_two</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
@@ -14683,7 +14670,7 @@ dtype: float64</pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#We create new variables called &#39;significant numbers&#39; which we will alter in order to deliver us just the significant digits</span>
@@ -14717,7 +14704,7 @@ dtype: float64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[26]:</div>
+    <div class="prompt output_prompt">Out[63]:</div>
 
 
 
@@ -14749,7 +14736,7 @@ dtype: float64</pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[64]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#This cell changes all of my integers into strings which are easier to slice in order to locate the sections of the 990 that</span>
@@ -14764,7 +14751,7 @@ dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#these lines below actually are finding the numbers in our entire dataset where the digit at some given position</span>
@@ -14789,7 +14776,7 @@ dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">first_numbers</span><span class="p">,</span> <span class="n">second_numbers</span><span class="p">,</span> <span class="n">third_numbers</span><span class="p">)</span>
@@ -14830,7 +14817,7 @@ dtype: float64</pre>
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[67]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">intersection</span><span class="p">(</span><span class="n">lst1</span><span class="p">,</span> <span class="n">lst2</span><span class="p">):</span> 
@@ -14845,7 +14832,7 @@ dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[68]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">inter_one_two</span> <span class="o">=</span> <span class="n">intersection</span><span class="p">(</span><span class="n">first_numbers</span><span class="p">,</span> <span class="n">second_numbers</span><span class="p">)</span>
@@ -14897,7 +14884,7 @@ dtype: float64</pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[69]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">in_first</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">inter_one_two</span><span class="p">)</span>
@@ -14923,7 +14910,7 @@ dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[70]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
@@ -14943,7 +14930,7 @@ dtype: float64</pre>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;3834833&#39;, &#39;350531&#39;, &#39;38904404&#39;, &#39;3833581&#39;, &#39;355273&#39;, &#39;1552635&#39;, &#39;18595451&#39;, &#39;455081&#39;]
+<pre>[&#39;3834833&#39;, &#39;350531&#39;, &#39;38904404&#39;, &#39;3833581&#39;, &#39;355273&#39;, &#39;455081&#39;, &#39;18595451&#39;, &#39;1552635&#39;]
 </pre>
 </div>
 </div>
@@ -14955,7 +14942,7 @@ dtype: float64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>There are quite a few suspicious numers in our list. 8 out of a sample size of 85.</p>
+<p>There are quite a few suspicious numbers in our list. 8 out of a sample size of 85.</p>
 <p>On to the last step: Our final account location analysis</p>
 
 </div>
@@ -14980,7 +14967,7 @@ dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[71]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#delete all values that arent on our list &#39;result&#39;</span>
@@ -15009,7 +14996,7 @@ dtype: float64</pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[72]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_to_investigate</span>
@@ -15025,7 +15012,7 @@ dtype: float64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[35]:</div>
+    <div class="prompt output_prompt">Out[72]:</div>
 
 
 
@@ -15114,7 +15101,7 @@ dtype: float64</pre>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[73]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">to_drop</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;revenue less expenses&#39;</span><span class="p">,</span> <span class="s1">&#39;Total expenses&#39;</span><span class="p">]</span>
@@ -15132,7 +15119,7 @@ dtype: float64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[36]:</div>
+    <div class="prompt output_prompt">Out[73]:</div>
 
 
 
@@ -15219,7 +15206,7 @@ dtype: float64</pre>
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[74]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">final_list</span>
@@ -15235,7 +15222,7 @@ dtype: float64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[37]:</div>
+    <div class="prompt output_prompt">Out[74]:</div>
 
 
 
